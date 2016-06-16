@@ -10,41 +10,13 @@ $(document).ready( function() {
         var queryTerm = $("#keyword").val();
         // var url = "https://api.yelp.com/v2/search?oauth_consumer_key=J7vAHD6r4TPzvjnniyFoaw&location="+queryTerm+"&oauth_nonce=gobblygook&oauth_signature=HGflok_6as2SEngYah75j61nwbw&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1466094519984&oauth_token=u5PmZDSUDdZcj2wk7oW9yH_k1BO7c3fc&term=ramen&callback=?";
 
-
-        var oauth = OAuth({
-            consumer: {
-                public: 'J7vAHD6r4TPzvjnniyFoaw',
-                secret: 'qYdQ4oHcn9LNc826OafZ63iUH9M'
-            },
-            signature_method: 'HMAC-SHA1'
-        });
-        var request_data = {
-            url: 'https://api.yelp.com/v2/search',
-            method: 'GET',
-            dataType: "jsonp"
-        };
-        var token = {
-            public: 'u5PmZDSUDdZcj2wk7oW9yH_k1BO7c3fc',
-            secret: 'HGflok_6as2SEngYah75j61nwbw'
-        };
-
-        $.ajax({
-            url: request_data.url,
-            type: request_data.method,
-            data: oauth.authorize(request_data, token)
-        }).done(function(data) {
-            console.log(data);
-        }).fail(function(data) {
-            console.log("FAIL + "+data);
-        });
-})
-
-
-
-
-
-
-
+        var jso = new JSO({
+                providerID: "google",
+                client_id: "541950296471.apps.googleusercontent.com",
+                redirect_uri: "http://bridge.uninett.no/jso/index.html",
+                authorization: "https://accounts.google.com/o/oauth2/auth",
+                scopes: { request: ["https://www.googleapis.com/auth/userinfo.profile"]}
+            });
 
 
     //     var url = "https://api.yelp.com/v2/search"
