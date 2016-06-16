@@ -17,7 +17,7 @@ $(document).ready( function() {
                 authorization: "https://accounts.google.com/o/oauth2/auth",
                 scopes: { request: ["https://www.googleapis.com/auth/userinfo.profile"]}
             });
-
+})
 
     //     var url = "https://api.yelp.com/v2/search"
     //     var d = new Date();
