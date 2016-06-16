@@ -33,9 +33,9 @@ $(document).ready( function() {
             type: request_data.method,
             data: oauth.authorize(request_data, token)
         }).done(function(data) {
-            console.log(data)
+            console.log(data);
         }).fail(function(data) {
-            console.log("FAIL + "data)
+            console.log("FAIL + "data);
         });
 
 
