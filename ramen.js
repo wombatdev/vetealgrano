@@ -8,34 +8,16 @@ $(document).ready( function() {
 
     $("button").click(function(){
         var queryTerm = $("#keyword").val();
-        var url = "https://www.omdbapi.com/?t="+queryTerm;
+        var url = "http://api.yelp.com/v2/search?oauth_consumer_key=J7vAHD6r4TPzvjnniyFoaw&location="+queryTerm+"&oauth_nonce=gobblygook&oauth_signature=HGflok_6as2SEngYah75j61nwbw&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1466094519984&oauth_token=u5PmZDSUDdZcj2wk7oW9yH_k1BO7c3fc&term=ramen";
+        var d = new Date();
+        var n = d.getTime();
         $.ajax({
             url: url,
             type: "GET",
             dataType: "json"
         }).done(function(response) {
             console.log(response);
-            targetObj = response;
-            titleSearch = response.Title+" in 5 seconds";
-            titleSearch = encodeURIComponent(titleSearch);
-            urltube = "https://www.googleapis.com/youtube/v3/search?q="+titleSearch+"&part=snippet&key=AIzaSyCLExwDoTktHGunzabmdMWLZEUSbYfcQ10";
-        }).then(function(titleSearch) {
-            $.ajax({
-                url: urltube,
-                type: "GET",
-                dataType: "json"
-            }).done(function(response2){
-                tester=response2;
-                videoIdTag = response2.items[0].id.videoId;
-                console.log(response2);
-            }).then(function(){
-                $("#player").css("display", "block");
-                var urltubeTwo = "https://www.youtube.com/embed/"+videoIdTag+"?enablejsapi=1&widgetid=1";
-                player.a.src = urltubeTwo;
-
-            }).fail(function(){
-                console.log("You failed at step 2 "+response2);
-            })
+            
         }).fail(function(response) {
             console.log("FAIL."+response)
         })
