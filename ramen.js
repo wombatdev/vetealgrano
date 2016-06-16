@@ -33,6 +33,9 @@ $(document).ready( function() {
         $.ajax({
             url: url,
             type: "GET",
+            beforeSend: function (request) {
+                request.addHeader("Access-Control-Allow-Origin", "https://wombatdev.github.io");
+            },
             cache: true,
             data: parameters,
             dataType: "json"
