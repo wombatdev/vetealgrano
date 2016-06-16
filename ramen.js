@@ -25,6 +25,7 @@ $(document).ready( function() {
             oauth_token: 'u5PmZDSUDdZcj2wk7oW9yH_k1BO7c3fc',
             oauth_nonce: generateNonce(16),
             oauth_timestamp: n,
+            oauth_signature: 'HGflok_6as2SEngYah75j61nwbw',
             oauth_signature_method: 'HMAC-SHA1',
             oauth_version : '1.0',
             callback: 'cb',
