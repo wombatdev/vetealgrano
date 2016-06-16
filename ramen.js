@@ -36,7 +36,7 @@ $(document).ready( function() {
             url: url,
             cache: true,
             data: parameters,
-            dataType: "json"
+            dataType: "jsonp"
         }).done(function(response) {
             console.log(response);
 
