@@ -35,7 +35,7 @@ $(document).ready( function() {
         }).done(function(data) {
             console.log(data);
         }).fail(function(data) {
-            console.log("FAIL + "data);
+            console.log("FAIL + "+data);
         });
 
 
