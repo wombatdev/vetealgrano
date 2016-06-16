@@ -25,7 +25,7 @@ $(document).ready( function() {
             url: url,
             type: "GET",
             cache: true,
-            data: parameters;
+            data: parameters,
             dataType: "json"
         }).done(function(response) {
             console.log(response);
