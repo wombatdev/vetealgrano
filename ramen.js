@@ -35,7 +35,7 @@ $(document).ready( function() {
             public: 'J7vAHD6r4TPzvjnniyFoaw',
             secret: 'qYdQ4oHcn9LNc826OafZ63iUH9M'
         }
-        console.log(oauth);
+        // console.log(oauth);
         });
         // $.ajax({
         //     type: "GET",
