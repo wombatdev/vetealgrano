@@ -35,19 +35,18 @@ $(document).ready( function() {
             public: 'J7vAHD6r4TPzvjnniyFoaw',
             secret: 'qYdQ4oHcn9LNc826OafZ63iUH9M'
         }
-        debugger
         });
-        $.ajax({
-            type: "GET",
-            url: url,
-            cache: true,
-            // data: parameters,
-            dataType: "jsonp",
-        }).done(function(response) {
-            console.log(response);
-
-        }).fail(function(response) {
-            console.log("FAIL."+response)
+        // $.ajax({
+        //     type: "GET",
+        //     url: url,
+        //     cache: true,
+        //     // data: parameters,
+        //     dataType: "jsonp",
+        // }).done(function(response) {
+        //     console.log(response);
+        //
+        // }).fail(function(response) {
+        //     console.log("FAIL."+response)
         })
     });
 
