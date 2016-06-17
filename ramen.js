@@ -29,12 +29,19 @@ $(document).ready( function() {
             oauth_timestamp: n,
             oauth_token: 'u5PmZDSUDdZcj2wk7oW9yH_k1BO7c3fc',
             oauth_version : '1.0',
-    };
+        };
+        var oauth = OAuth({
+            consumer: {
+            public: 'J7vAHD6r4TPzvjnniyFoaw',
+            secret: 'qYdQ4oHcn9LNc826OafZ63iUH9M'
+        }
+        debugger
+        });
         $.ajax({
             type: "GET",
             url: url,
             cache: true,
-            data: parameters,
+            // data: parameters,
             dataType: "jsonp",
         }).done(function(response) {
             console.log(response);
