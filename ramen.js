@@ -41,7 +41,8 @@ $(document).ready( function() {
             url: 'https://api.yelp.com/v2/search?',
             method: 'GET',
             data: {
-                status: "location="+queryTerm
+                status: "location="+queryTerm,
+                callback: 'cb'
             }
         };
         var token = {
