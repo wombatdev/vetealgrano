@@ -37,6 +37,7 @@ $(document).ready( function() {
         }
         // console.log(oauth);
         });
+        oauth.authorize(request, token);
         // $.ajax({
         //     type: "GET",
         //     url: url,
