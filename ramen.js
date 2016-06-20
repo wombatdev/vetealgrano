@@ -3,6 +3,11 @@ var titleSearch;
 var videoIdTag;
 var tester;
 var urltube;
+var request_data;
+var token;
+var oauth;
+var token;
+var oauth_data;
 
 $(document).ready( function() {
 
