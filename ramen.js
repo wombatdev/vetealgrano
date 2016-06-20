@@ -1,8 +1,5 @@
-var targetObj;
-var titleSearch;
-var videoIdTag;
-var tester;
-var urltube;
+
+var queryTerm;
 var request_data;
 var token;
 var oauth;
@@ -15,9 +12,11 @@ $(document).ready( function() {
         var queryTerm = $("#keyword").val();
         // var url = "https://api.yelp.com/v2/search?oauth_consumer_key=J7vAHD6r4TPzvjnniyFoaw&location="+queryTerm+"&oauth_nonce=gobblygook&oauth_signature=HGflok_6as2SEngYah75j61nwbw&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1466094519984&oauth_token=u5PmZDSUDdZcj2wk7oW9yH_k1BO7c3fc&term=ramen&callback=?";
 
-        var url = "https://api.yelp.com/v2/search?location="+queryTerm+"term=ramen";
-        var d = new Date();
-        var n = d.getTime();
+        var url = "https://api.yelp.com/v2/search?location="+queryTerm+"&term=ramen";
+        var getStamp = function () {
+            var d = new Date();
+            return d.getTime();
+        }
         var generateNonce = function(length) {
             var text = "";
             var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -26,15 +25,6 @@ $(document).ready( function() {
             }
             return text;
         }
-        // var parameters = {
-        //     oauth_consumer_key: 'J7vAHD6r4TPzvjnniyFoaw',
-        //     oauth_nonce: generateNonce(16),
-        //     oauth_signature: 'qYdQ4oHcn9LNc826OafZ63iUH9M&HGflok_6as2SEngYah75j61nwbw',
-        //     oauth_signature_method: 'HMAC-SHA1',
-        //     oauth_timestamp: n,
-        //     oauth_token: 'u5PmZDSUDdZcj2wk7oW9yH_k1BO7c3fc',
-        //     oauth_version : '1.0',
-        // };
         var oauth = new OAuth({
             consumer: {
                 public: 'J7vAHD6r4TPzvjnniyFoaw',
@@ -43,7 +33,7 @@ $(document).ready( function() {
             signature_method: 'HMAC-SHA1'
         });
         var request_data = {
-            url: 'https://api.yelp.com/v2/search?',
+            url: 'https://api.yelp.com/v2/search?term=ramen',
             method: 'POST',
             data: {
                 location: queryTerm
@@ -57,8 +47,9 @@ $(document).ready( function() {
         var oauth_data = {
         oauth_consumer_key: oauth.consumer.public,
         oauth_nonce: generateNonce(),
+        oauth_signature: oauth.getSignature(request_data, token.secret, oauth_data),
         oauth_signature_method: oauth.signature_method,
-        oauth_timestamp: n,
+        oauth_timestamp: getStamp(),
         oauth_version: '1.0',
         oauth_token: token.public
         };
