@@ -32,14 +32,16 @@ $(document).ready( function() {
             },
             signature_method: 'HMAC-SHA1'
         });
+
         var request_data = {
             url: 'https://api.yelp.com/v2/search?',
             method: 'POST',
             data: {
-                'location': queryTerm,
-                'term': "ramen"
+                location: queryTerm,
+                term: "ramen"
             }
         };
+
         var token = {
             public: 'u5PmZDSUDdZcj2wk7oW9yH_k1BO7c3fc',
             secret: 'HGflok_6as2SEngYah75j61nwbw'
@@ -48,7 +50,7 @@ $(document).ready( function() {
         var oauth_data = {
         oauth_consumer_key: oauth.consumer.public,
         oauth_nonce: generateNonce(),
-        oauth_signature: oauth.getSignature(request_data, token.secret, oauth_data),
+        // oauth_signature: oauth.getSignature(request_data, token.secret, oauth_data),
         oauth_signature_method: oauth.signature_method,
         oauth_timestamp: getStamp(),
         oauth_version: '1.0',
