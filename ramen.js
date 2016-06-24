@@ -33,11 +33,12 @@ $(document).ready( function() {
             signature_method: 'HMAC-SHA1'
         });
         var request_data = {
-            url: 'https://api.yelp.com/v2/search?term=ramen&location=20001',
+            url: 'https://api.yelp.com/v2/search?',
             method: 'POST',
-            // data: {
-            //     location: queryTerm
-            // }
+            data: {
+                location: queryTerm,
+                term: "ramen"
+            }
         };
         var token = {
             public: 'u5PmZDSUDdZcj2wk7oW9yH_k1BO7c3fc',
@@ -55,9 +56,8 @@ $(document).ready( function() {
         };
 
         $.ajax({
-            url: request_data.url,
+            url: oauth.authorize(request_data, token),
             type: request_data.method,
-            data: oauth.authorize(request_data, token),
             dataType: 'jsonp'
         }).done(function(data) {
             console.log(data)
